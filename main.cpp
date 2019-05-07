@@ -7,12 +7,18 @@
 namespace boost {
   namespace units {
     //These tags enable to recognize that sulfide molecules are not hydrogen molecules
-    struct sulfide_molecule_amount_dimension_tag : base_dimension<boost::units::amount_base_dimension,1>{};
-    struct hydrogen_molecule_amount_dimension_tag : base_dimension<boost::units::amount_base_dimension,1>{};
-
-
-    typedef derived_dimension<sulfide_molecule_amount_dimension_tag,1>::type sulfide_molecule_amount_dimension;
-    typedef derived_dimension<hydrogen_molecule_amount_dimension_tag,1>::type hydrogen_molecule_amount_dimension;
+    struct sulfide_molecule_amount_dimension_tag : base_dimension<
+      boost::units::amount_base_dimension, 1
+    >{};
+    struct hydrogen_molecule_amount_dimension_tag : base_dimension<
+      boost::units::amount_base_dimension, 1
+    >{};
+    typedef derived_dimension<
+      sulfide_molecule_amount_dimension_tag, 1
+    >::type sulfide_molecule_amount_dimension;
+    typedef derived_dimension<
+      hydrogen_molecule_amount_dimension_tag, 1
+    >::type hydrogen_molecule_amount_dimension;
   } // namespace units
 } // namespace boost
 
@@ -20,10 +26,14 @@ namespace boost {
 namespace boost {
   namespace units {
     namespace si {
-      typedef unit<sulfide_molecule_amount_dimension,si::system> sulfide_molecule_amount;
-      typedef unit<hydrogen_molecule_amount_dimension,si::system> hydrogen_molecule_amount;
-      BOOST_UNITS_STATIC_CONSTANT(sulfide_molecules_mol,sulfide_molecule_amount);
-      BOOST_UNITS_STATIC_CONSTANT(hydrogen_molecules_mol,hydrogen_molecule_amount);
+      typedef unit<
+        sulfide_molecule_amount_dimension, si::system
+      > sulfide_molecule_amount;
+      typedef unit<
+        hydrogen_molecule_amount_dimension, si::system
+      > hydrogen_molecule_amount;
+      BOOST_UNITS_STATIC_CONSTANT(sulfide_molecules_mol, sulfide_molecule_amount); //!OCLINT long name indeed, keep it for readability of this example
+      BOOST_UNITS_STATIC_CONSTANT(hydrogen_molecules_mol, hydrogen_molecule_amount); //!OCLINT long name indeed, keep it for readability of this example
     } // namespace si
   } // namespace units
 } //namespace boost
@@ -49,11 +59,16 @@ int main()
 
 }
 
-/*
+/* Output:
+
+Number of hydrogen molecules: 1 dimensionless
+Number of sulfide molecules: 1 dimensionless
+
+*/
+
+/* Desired output:
 
 Number of hydrogen molecules: 1 mol
 Number of sulfide molecules: 1 mol
-Number of molecules: 2 mol
-Press <RETURN> to close this window...
 
 */
